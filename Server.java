@@ -11,12 +11,15 @@ public class Server {
 
         ServerSocket listener = new ServerSocket(1234);
         System.out.println("Server is running...");
-        Socket p1 = listener.accept();
-        System.out.println("Player 1 connected");
-        Socket p2 = listener.accept();
-        System.out.println("Player 2 connected");
-        GameThread game = new GameThread(p1, p2, listener);
-        game.start();
+        while(true){
+            Socket p1 = listener.accept();
+            System.out.println("Player 1 connected");
+            Socket p2 = listener.accept();
+            System.out.println("Player 2 connected");
+            System.out.println("Partida: " + p1.hashCode() + "-" + p2.hashCode() + " iniciada !");
+            GameThread game = new GameThread(p1, p2, listener);
+            game.start();
+        }
 
     }
 

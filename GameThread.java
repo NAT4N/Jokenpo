@@ -44,12 +44,33 @@ public class GameThread extends Thread{
             sendMessage(p2, "MSG: Você venceu!");
             sendMessage(p1, "MSG: Você perdeu!");
         }
-        try {
-            listener.close();
-        } catch (IOException e) {
+
+        sendMessage(p1, "MSG: Deseja uma revanche ?  || 1 - Sim  || 0 - Não");
+        sendMessage(p2, "MSG: Deseja uma revanche ?  || 1 - Sim  || 0 - Não");
+        sendMessage(p1, "STATUS: y");
+        sendMessage(p2, "STATUS: y");
+
+        int revp1 = Integer.parseInt(receiveMessage(p1).substring(3));
+        int revp2 = Integer.parseInt(receiveMessage(p2).substring(3));
+
+        if(revp1 == 1 && revp2 == 1)
+        {
+            sendMessage(p1, "MSG: Revanche aceita ! \n Iniciando um novo jogo. . . \n");
+            sendMessage(p2, "MSG: Revanche aceita ! \n Iniciando um novo jogo. . . \n");
+            run();
+        }else if(revp1 == 1 && revp2 == 0 || revp1 == 0 && revp2 == 1 ||revp1 == 0 && revp2 == 0)
+        {
+            sendMessage(p1, "MSG: A revanche não foi aceita por um dos jogadores");
+            sendMessage(p2, "MSG: A revanche não foi aceita por um dos jogadores");
+            System.out.println("Jogo: " + p1.hashCode() + "-" + p2.hashCode() + " encerrado !");
+        }
+        try{
+            p1.close();
+            p2.close();
+        }catch(Exception e)
+        {
             e.printStackTrace();
         }
-        System.out.println("Jogo encerrado!");
     }
 
     public static void sendMessage(Socket socket, String msg){
@@ -77,9 +98,11 @@ public class GameThread extends Thread{
         }
         if (a == 0) {
             if (b == 1) {
+                //P1 GANHA
                 return 2;
             }
             if (b == 2) {
+                //P2 GANHA
                 return 1;
             }
         }
