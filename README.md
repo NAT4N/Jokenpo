@@ -24,7 +24,7 @@ Pedro Henrique Silva Torres Souza - 125111357179 <br>
 <p> 🎮 - Ao escolher o elemento do seu Pokemon inicial o jogador saberá se venceu ou se perdeu a batalha:
    <br><br>
  
- <img src ="Elementos.png">
+ <img src ="Elementos.png" alt="Win11Check" width="600">
  
  0: Fire
  
