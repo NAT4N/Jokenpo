@@ -24,8 +24,6 @@ Pedro Henrique Silva Torres Souza - 125111357179 <br>
 <p> 🎮 - Ao escolher o elemento do seu Pokemon inicial o jogador saberá se venceu ou se perdeu a batalha:
    <br><br>
  
- <img src ="Elementos.png">
- 
  0: Fire
  
 <h1 align="center">
@@ -47,3 +45,8 @@ Pedro Henrique Silva Torres Souza - 125111357179 <br>
 <br>
 </h1>
 
+<h1 align="center">
+<p> Ordem de força dos elementos: <p>
+ <img src ="Elementos.png">
+  <br><br>
+</h1>
